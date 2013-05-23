@@ -17,30 +17,15 @@ Jeweler::Tasks.new do |gem|
   gem.name = "guard-faye"
   gem.homepage = "http://github.com/d4rk5eed/guard-faye"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{ Guard plugin for faye }
+  gem.description = %Q{ This plugin automatically starts and restart Faye message server under Guard }
   gem.email = "y.zemlyanukhin@mdterra.org"
   gem.authors = ["Yaroslav Zemlyanukhin"]
   # dependencies defined in Gemfile
+  gem.add_dependency 'sys-proctable'
+  gem.files = Dir.glob("lib/**/*.rb")
 end
 Jeweler::RubygemsDotOrgTasks.new
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
-
-task :default => :test
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
