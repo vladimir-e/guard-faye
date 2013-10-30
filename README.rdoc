@@ -1,6 +1,22 @@
 = guard-faye
 
-Description goes here.
+Plugin automatically starts and stops faye server in guard environment.
+
+== Install 
+
+* Add <b>gem 'guard-faye'</b> to Gemfile into <b>:test</b> group
+* <b>bundle install</b>
+ 
+== Use as regular guard plugin
+
+* Add 
+
+    guard 'faye', path: File.expand_path(File.dirname(__FILE__)), config: '<path_to_faye_config>' do
+      watch('<path_to_faye_config>')
+    end
+ 
+to <b>Guardfile</b>
+* Run <b>guard</b> as usual
 
 == Contributing to guard-faye
  
