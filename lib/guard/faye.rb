@@ -11,11 +11,12 @@ module Guard
       super
 
       @current_path = options[:path]
-      @faye_init = options[:config]
+      @faye_init    = options[:config]
+      @faye_env     = options[:faye_env] || 'test'
     end
 
     def start
-      cmd = "cd #{@current_path} && bundle exec rackup #{@current_path}/#{@faye_init} -s thin -E test"
+      cmd = "cd #{@current_path} && bundle exec rackup #{@current_path}/#{@faye_init} -s thin -E #{@faye_env}"
       
       result = ''
       
